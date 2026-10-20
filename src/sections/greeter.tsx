@@ -1,17 +1,18 @@
 import { useEffect, useState } from 'react';
-import generateHello from './helpers/helloStyles';
-import getLang from './helpers/getLang';
+import GenerateHello from './helpers/helloStyles';
+import GetLang from './helpers/getLang';
+import LiquidBackground from '../components/liquidBackground';
 
 function GreeterPage() {
 
     const [greeting, setGreeting] = useState<string>('');
-    const lang = getLang();
+    const lang = GetLang();
 
     useEffect(() => {
         let cancelled: boolean = false
 
         async function updateGreeting() {
-            for await (const greetMessage of generateHello(lang)) {
+            for await (const greetMessage of GenerateHello(lang)) {
                 if (cancelled) break;
                 setGreeting(greetMessage);
             }
@@ -26,6 +27,7 @@ function GreeterPage() {
     
     return (
         <>
+            <LiquidBackground />
             <h1>{greeting}, I'm Zeftarium.</h1>
             <h2>Let's get to know each other.</h2>
         </>

@@ -16,7 +16,7 @@ const sleep = (ms: number): Promise<void> => {
     return new Promise((resolve) => setTimeout(resolve, ms))
 }
 
-async function* generateHello(lang: string): AsyncGenerator<string> {
+async function* GenerateHello(lang: string): AsyncGenerator<string> {
     for (const [_, greeting] of Object.entries(greetingCards)) {
         yield greeting;
         await sleep(flipTime);
@@ -29,4 +29,4 @@ async function* generateHello(lang: string): AsyncGenerator<string> {
     }
 }
 
-export default generateHello;
+export default GenerateHello;
