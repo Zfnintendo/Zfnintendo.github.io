@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, memo } from "react";
 import * as THREE from "three";
 
 import vertexShader from "../shaders/liquid.vert.glsl?raw";
@@ -57,16 +57,43 @@ function LiquidBackground() {
         );
     };
     resize();
-    
+
     const observer = new ResizeObserver(resize);
     observer.observe(container);
 
     scene.add(mesh);
 
-    container?.appendChild(renderer.domElement);
+    const timer = new THREE.Timer();
+    timer.connect(document);
+
+    let frameId: number;
+
+    const animate = (timestamp: number) => {
+        frameId = requestAnimationFrame(animate);
+
+        timer.update(timestamp);
+
+        uniforms.uTime.value = timer.getElapsed();
+
+        renderer.render(scene, camera);
+    };
+
+    frameId = requestAnimationFrame(animate);
+
+    container.appendChild(renderer.domElement);
 
     return () => {
+        cancelAnimationFrame(frameId);
+
+        observer.disconnect();
+
+        timer.disconnect();
+        timer.dispose();
+
+        geometry.dispose();
+        material.dispose();
         renderer.dispose();
+
         renderer.domElement.remove();
     }
   })
@@ -74,9 +101,10 @@ function LiquidBackground() {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 -z-10"
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
     />
   );
 }
 
-export default LiquidBackground;
+export default memo(LiquidBackground);

@@ -26,11 +26,17 @@ function GreeterPage() {
     }, []);
     
     return (
-        <>
+        <section 
+        id="HeroBanner"
+        className="relative isolate flex min-h-screen flex-col items-center justify-center overflow-hidden"
+        >
             <LiquidBackground />
-            <h1>{greeting}, I'm Zeftarium.</h1>
-            <h2>Let's get to know each other.</h2>
-        </>
+            
+            <div className="relative z-10 text-center">
+                <h1>{greeting}, I'm Zeftarium.</h1>
+                <h2>Let's get to know each other.</h2>
+            </div>
+        </section>
     );
 }
 

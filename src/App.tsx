@@ -1,10 +1,12 @@
 import GreeterPage from './sections/greeter'
+import './App.css';
 
 function App() {
   return (
     <>
-      <section>
-        <GreeterPage />
+      <GreeterPage />
+      <section id="about" className="min-h-screen bg-white">
+
       </section>
     </>
   );
