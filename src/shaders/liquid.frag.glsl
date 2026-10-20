@@ -54,9 +54,17 @@ void main() {
         fbm(p + vec2(5.2, 1.3) - vec2(t, 0.0))
     );
 
-    vec2 warpedUV = p + 1.8 * (distortion - 0.5);
+    vec2 warpedUV = p + 4.0 * (distortion - 0.5);
 
     float n = fbm(warpedUV);
 
-    gl_FragColor = vec4(vec3(n), 1.0);
+    vec3 cream = vec3(1.0, 0.96, 0.65);
+    vec3 yellow = vec3(1.0, 0.82, 0.18);
+    vec3 orange = vec3(1.0, 0.65, 0.03);
+
+    vec3 color = mix(cream, yellow, smoothstep(0.25, 0.7, n));
+
+    color = mix(color, orange, smoothstep(0.45, 0.95, n));
+
+    gl_FragColor = vec4(color, 1.0);
 }
