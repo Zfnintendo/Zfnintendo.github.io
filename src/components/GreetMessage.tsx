@@ -28,10 +28,7 @@ function GreetMessage() {
 
     return (
         <>
-            <div className="relative z-10 text-center">
-                <h1>{greeting}, I'm Zeftarium.</h1>
-                <h2>Let's get to know each other.</h2>
-            </div>
+            <h1>{greeting}, I'm Zeftarium.</h1>
         </>
     );
 
