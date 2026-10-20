@@ -1,5 +1,5 @@
-import GetLang from '../sections/helpers/GetLang';
-import GenerateHello from '../sections/helpers/HelloStyles'
+import GetLang from '../sections/helpers/getLang';
+import GenerateHello from '../sections/helpers/helloStyles'
 
 import { useState, useEffect } from 'react';
 
