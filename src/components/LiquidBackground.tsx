@@ -9,6 +9,7 @@ function LiquidBackground() {
 
   useEffect(() => {
     const container = containerRef.current;
+    if (!container) return;
     
     const scene = new THREE.Scene();
 
@@ -24,6 +25,43 @@ function LiquidBackground() {
     })
 
     const geometry = new THREE.PlaneGeometry(2, 2);
+
+    const uniforms = {
+        uTime: { value: 0 },
+        uResolution: {
+            value: new THREE.Vector2(1, 1),
+        },
+    };
+
+    const material = new THREE.ShaderMaterial({
+        uniforms,
+        vertexShader,
+        fragmentShader,
+    });
+
+    const mesh = new THREE.Mesh(geometry, material);
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    const resize = () => {
+        const width = container.clientWidth;
+        const height = container.clientHeight;
+
+        if (width === 0 || height === 0) return;
+
+        renderer.setSize(width, height);
+
+        uniforms.uResolution.value.set(
+            renderer.domElement.width,
+            renderer.domElement.height,
+        );
+    };
+    resize();
+    
+    const observer = new ResizeObserver(resize);
+    observer.observe(container);
+
+    scene.add(mesh);
 
     container?.appendChild(renderer.domElement);
 
