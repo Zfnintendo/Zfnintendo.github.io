@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import GenerateHello from './helpers/helloStyles';
-import GetLang from './helpers/getLang';
-import LiquidBackground from '../components/liquidBackground';
+import GenerateHello from './helpers/HelloStyles';
+import GetLang from './helpers/GetLang';
+import LiquidBackground from '../components/LiquidBackground';
 
 function GreeterPage() {
 

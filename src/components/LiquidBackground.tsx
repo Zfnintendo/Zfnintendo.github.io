@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
+import vertexShader from "../shaders/liquid.vert.glsl?raw";
+import fragmentShader from "../shaders/liquid.frag.glsl?raw";
+
 function LiquidBackground() {
   const containerRef = useRef<HTMLDivElement>(null);
 
