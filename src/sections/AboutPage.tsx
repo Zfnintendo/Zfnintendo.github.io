@@ -1,6 +1,6 @@
 function AboutPage() {
     return (
-        <section className="min-h-screen bg-white">
+        <section className="min-h-screen bg-primary">
 
         </section>
     );
