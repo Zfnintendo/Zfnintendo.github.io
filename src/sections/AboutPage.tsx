@@ -1,9 +1,18 @@
 import AboutDescription from '../components/AboutDesc';
+import CatCard from '../components/CatCard';
 
 function AboutPage() {
     return (
-        <section className="flex flex-col min-h-screen bg-primary">
-            <AboutDescription />
+        <section className="flex min-h-screen items-center bg-primary px-6 py-20">
+            <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-12 lg:flex-row">
+                <div className="w-full min-w-0 lg:flex-1">
+                    <AboutDescription />
+                </div>
+
+                <div className="w-full max-w-sm shrink-0">
+                    <CatCard />
+                </div>
+            </div>
         </section>
     );
 }
