@@ -17,6 +17,11 @@ function AboutPage() {
                     <CatCard />
                 </div>
             </div>
+
+            <div className="relative mt-24">
+                <div aria-hidden="true" className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-accent"/>
+                
+            </div>
         </section>
     );
 }

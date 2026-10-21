@@ -1,10 +1,14 @@
 import englishAbout from './AboutDescription/english.txt?raw';
+import englishDetails from './ShortAboutDesc/english.txt?raw';
 
-export type RequestedText = "AboutDescription"
+export type RequestedText = "AboutDescription" | "ShortAboutDesc"
 
 const translations: Record<RequestedText, Record<string, string>> = {
     AboutDescription: {
         en: englishAbout,
+    },
+    ShortAboutDesc: {
+        en: englishDetails,
     },
 };
 

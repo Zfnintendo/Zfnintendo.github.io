@@ -1,27 +1,60 @@
+import { useId, useState } from 'react';
 import GetLang from '../helpers/getLang';
 import GetRequestedLocale from '../locale/GetRequestedLocale';
 
 function AboutDescription() {
+
+    const [expanded, setExpanded] = useState(false);
+    const detailsId = useId();
     
-    const text = GetRequestedLocale(GetLang(), "AboutDescription");
+    const langauge = GetLang();
+    const introduction = GetRequestedLocale(langauge, "AboutDescription");
+    const details = GetRequestedLocale(langauge, "ShortAboutDesc");
+    
 
     return (
-        <div className="
-            flex flex-col 
-            items-center justify-center text-center
-            min-h-100 w-full max-w-175 z-10 
-            font-roboto font-semibold
-            text-base sm:text-lg lg:text-xl
-            bg-secondary/10 
-            border border-secondary/5
-            rounded-2xl
-            shadow-xl p-6
+        <button
+            type="button"
+            aria-expanded={expanded}
+            aria-controls={detailsId}
+            onClick={() => setExpanded(value => !value)}
+            className="
+                relative block w-full max-w-200 cursor-pointer
+                rounded-2xl border border-secondary/5
+                bg-secondary/10 p-6 text-center shadow-xl
+                font-roboto font-semibold
+                text-base sm:text-lg lg:text-xl
+                transition-transform duration-300 ease-out
+                hover:scale-[1.02]
+                focus-visible:outline-2
+                focus-visible:outline-offset-4
+                focus-visible:outline-text
+                motion-reduce:transform-none
+            "
+        >
+            <span className="block">{introduction}</span>
 
-            transition-transform duration-300 ease-out hover:scale-105
-            motion-reduce:transform-none
-        ">
-            <p>{text}</p>
-        </div>
+            <span
+                id={detailsId}
+                aria-hidden={!expanded}
+                className={`
+                    grid transition-[grid-template-rows, opacity]
+                    duration-500 ease-out
+                    motion-reduce:transition-none
+                    ${expanded ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}
+                `}
+            >
+                <span className="min-h-0 overflow-hidden">
+                    <span className="block pt-4 whitespace-pre-line">
+                        {details}
+                    </span>
+                </span>
+            </span>
+
+            <span className="mt-4 block text-sm text-text-muted">
+                {expanded ? "Click to show less" : "Click to read more"}
+            </span>
+        </button>
     );
 
 }
