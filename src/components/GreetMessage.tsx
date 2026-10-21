@@ -1,5 +1,5 @@
-import GetLang from '../sections/helpers/getLang';
-import GenerateHello from '../sections/helpers/helloStyles'
+import GetLang from '../helpers/getLang';
+import GenerateHello from '../helpers/helloStyles'
 
 import { useState, useEffect } from 'react';
 
@@ -28,7 +28,7 @@ function GreetMessage() {
 
     return (
         <>
-            <h1>{greeting}, I'm Zeftarium.</h1>
+            <h1 className="text-2xl font-semibold sm:text-3xl lg:text-4xl">{greeting}, I'm <span className="underline">Zeftarium</span>.</h1>
         </>
     );
 

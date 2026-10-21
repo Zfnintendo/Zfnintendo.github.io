@@ -9,9 +9,18 @@ function GreeterPage() {
         >
             <LiquidBackground />
 
-            <div className="relative z-10 text-center">
+            <div className="
+                flex flex-col 
+                items-center justify-center text-center 
+                min-h-100 w-full max-w-200 z-10 
+                font-roboto
+                bg-surface/10 backdrop-blur-lg
+                border border-surface/5
+                rounded-2xl
+                shadow-xl p-6
+                ">
                 <GreetMessage />
-                <h2>Let's get to know each other.</h2>
+                <h2 className="text-base sm:text-lg lg:text-xl">Let's get to know each other.</h2>
             </div>
         </section>
     );
