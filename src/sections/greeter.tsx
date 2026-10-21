@@ -8,13 +8,16 @@ function GreeterPage() {
             className="relative isolate flex min-h-screen flex-col items-center justify-center overflow-hidden"
         >
             <LiquidBackground />
-            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[35vh]" style={{background: "linear-gradient(to bottom, transparent, var(--color-primary))",}}/>
+            <div aria-hidden="true" 
+                className="pointer-events-none absolute inset-x-0 bottom-0 z-0 h-[35vh]" 
+                style={{background: "linear-gradient(to bottom, transparent, var(--color-primary))",}}
+            />
 
             <div className="
                 flex flex-col 
                 items-center justify-center text-center 
                 min-h-100 w-full max-w-200 z-10 
-                font-roboto
+                font-roboto text-text
                 bg-surface/10 backdrop-blur-lg
                 border border-surface/5
                 rounded-2xl

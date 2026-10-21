@@ -1,5 +1,5 @@
 const greetingCards: Record<string, string> = {
-    "en": "Greetings",
+    "en": "Hello",
     "zh": "你好",
     "ms": "Hai",
     "ko": "안녕하세요",

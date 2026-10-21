@@ -1,0 +1,5 @@
+Hello, I am Zeftarium! Some may know me by Zfnintendo2 on other platforms or other shorthand versions of my username. 
+I am a beginner programmer with some experience in a few languages. I have made a few small projects based on the languages I have learnt.
+I was first introduced to programming around 2021 through a school class, with a few projects needing programming here and there. However only focused on programming since 2026 August. 
+The first language I was introduced to was Python as most people are but when I started focusing on programming started on lua/luau.
+From there I've gradually experienced other languages like JavaScript/TypeScript, C++/ino and Java. I do not think I am an expert on any of these languages but I can make simple programs with them.

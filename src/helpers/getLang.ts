@@ -1,8 +1,8 @@
-function GetLang() {
-    const language = new Intl.Locale(navigator.language).language;
+function GetLang(): string {
+    const language: string = new Intl.Locale(navigator.language).language;
 
 
-    return language;
+    return language; // returns language like "en" or "zh"
 }
 
 export default GetLang;
