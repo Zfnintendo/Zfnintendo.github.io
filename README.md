@@ -1,75 +1,29 @@
-# React + TypeScript + Vite
+## Third-Party Assets
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### 3D Programming Language Logos
 
-Currently, two official plugins are available:
+This website incorporates 3D programming language logos created by **Alex human** and published on Sketchfab.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Models Used:**
+- C++
+- CSS
+- HTML
+- JavaScript
+- TypeScript
+- Python
 
-## React Compiler
+**Attribution:**
+- **Creator:** [Alex human](https://sketchfab.com/alex-human)
+- **Collection:** [Programming — Sketchfab](https://sketchfab.com/alex-human/collections/programming-8c598c7aae0d45589884e33349211f8d)
+- **License:** Refer to each model's individual Creative Commons license on Sketchfab.
+- **Modifications:** None (if applicable).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+All 3D models remain the intellectual property of their respective creator and are used in accordance with their applicable licenses.
 
-## Expanding the ESLint configuration
+### Licensing Notice
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+The source code of this website is licensed under the [MIT License](LICENSE).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Third-party 3D assets are **excluded from the MIT License** and remain subject to their original licensing terms.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+For more information regarding the models, attribution requirements, and licensing conditions, please visit the original [Sketchfab collection](https://sketchfab.com/alex-human/collections/programming-8c598c7aae0d45589884e33349211f8d).
