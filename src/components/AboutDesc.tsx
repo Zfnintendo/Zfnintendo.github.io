@@ -12,10 +12,13 @@ function AboutDescription() {
             min-h-100 w-full max-w-175 z-10 
             font-roboto font-semibold
             text-base sm:text-lg lg:text-xl
-            bg-secondary/30 backdrop-blur-lg
-            border border-secondary/25
+            bg-secondary/10 
+            border border-secondary/5
             rounded-2xl
             shadow-xl p-6
+
+            transition-transform duration-300 ease-out hover:scale-105
+            motion-reduce:transform-none
         ">
             <p>{text}</p>
         </div>
