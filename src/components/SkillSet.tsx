@@ -15,7 +15,111 @@ import ThreeJsLogo from "../assets/Libraries/ThreeJsLogo.png";
 import DiscordPyLogo from "../assets/Libraries/DiscordPyLogo.png";
 import DiscordJsLogo from "../assets/Libraries/DiscordJSLogo.png";
 
+import SkillSetInfo from "./SkillSetInfo";
 
+const languages = [
+    {
+        id: "python",
+        name: "Python",
+        image: PythonLogo,
+        description: ""
+    },
+    {
+        id: "javascript",
+        name: "JavaScript",
+        image: JavaScriptLogo,
+        description: ""
+    },
+    {
+        id: "typescript",
+        name: "TypeScript",
+        image: TypeScriptLogo,
+        description: ""
+    },
+    {
+        id: "html",
+        name: "Hyper-Text Markup Language",
+        image: HTMLLogo,
+        description: ""
+    },
+    {
+        id: "css",
+        name: "Cascading Style Sheets",
+        image: CSSLogo,
+        description: ""
+    },
+    {
+        id: "cpp",
+        name: "C++",
+        image: CPPLogo,
+        description: ""
+    },
+    {
+        id: "ino",
+        name: "Arduino",
+        image: InoLogo,
+        description: ""
+    },
+    {
+        id: "lua",
+        name: "Lua",
+        image: LuaLogo,
+        description: ""
+    },
+    {
+        id: "luau",
+        name: "Luau",
+        image: LuauLogo,
+        description: ""
+    },
+    {
+        id: "java",
+        name: "Java",
+        image: JavaLogo,
+        description: ""
+    },
+];
+
+const libraries = [
+    {
+        id: "matplotlib",
+        name: "MatPlotLib",
+        image: MatPlotLibLogo,
+        description: ""
+    },
+    {
+        id: "react",
+        name: "React",
+        image: ReactLogo,
+        description: ""
+    },
+    {
+        id: "threejs",
+        name: "Three.js",
+        image: ThreeJsLogo,
+        description: ""
+    },
+    {
+        id: "tailwind",
+        name: "Tailwind CSS",
+        image: TailwindCssLogo,
+        description: ""
+    },
+    {
+        id: "discordpy",
+        name: "Discord.py",
+        image: DiscordPyLogo,
+        description: ""
+    },
+    {
+        id: "discordjs",
+        name: "Discord.js",
+        image: DiscordJsLogo,
+        description: ""
+    },
+];
+
+const skillGroups = [languages, libraries];
 
 function SkillSet() {
     return (
@@ -30,28 +134,31 @@ function SkillSet() {
 
                 <h2 className="text-2xl font-semibold">Experiences</h2>
                 <p className="">Here is all the languages, frameworks and libraries I have used before, both in and out my projects!</p>
-                <hr className="my-6 border-text/20"></hr>
-                <div className="grid grid-cols-5 gap-1 sm:grid-cols-10 lg:grid-cols-15">
-                    <img src={PythonLogo} alt="Python Logo" className="aspect-square w-full "/>
-                    <img src={JavaScriptLogo} alt="Python Logo" className="aspect-square w-full"/>
-                    <img src={TypeScriptLogo} alt="Python Logo" className="aspect-square w-full"/>
-                    <img src={HTMLLogo} alt="Python Logo" className="aspect-square w-full"/>
-                    <img src={CSSLogo} alt="Python Logo" className="aspect-square w-full"/>
-                    <img src={CPPLogo} alt="Python Logo" className="aspect-square w-full"/>
-                    <img src={InoLogo} alt="Python Logo" className="aspect-square w-full"/>
-                    <img src={LuaLogo} alt="Python Logo" className="aspect-square w-full"/>
-                    <img src={LuauLogo} alt="Python Logo" className="aspect-square w-full"/>
-                    <img src={JavaLogo} alt="Python Logo" className="aspect-square w-full"/>
-                </div>
-                <hr className="my-6 border-text/20"></hr>
-                <div className="grid grid-cols-5 gap-1 sm:grid-cols-10 lg:grid-cols-15">
-                    <img src={MatPlotLibLogo} alt="Python Logo" className="aspect-square w-full "/>
-                    <img src={ReactLogo} alt="Python Logo" className="aspect-square w-full "/>
-                    <img src={ThreeJsLogo} alt="Python Logo" className="aspect-square w-full "/>
-                    <img src={TailwindCssLogo} alt="Python Logo" className="aspect-square w-full "/>
-                    <img src={DiscordPyLogo} alt="Python Logo" className="aspect-square w-full "/>
-                    <img src={DiscordJsLogo} alt="Python Logo" className="aspect-square w-full "/>
-                </div>
+                {skillGroups.map((skills, groupIndex) => 
+                    <div key={groupIndex}>
+                        <hr className="my-6 border-text/20" />
+
+                        <div className="grid grid-cols-5 gap-1 sm:grid-cols-10 lg:grid-cols-15">
+                            {skills.map(skill => (
+                                <div key={skill.id} className="group relative min-w-0 hover:z-20 focus-within:z-20">
+                                    <button type="button" aria-label={`${skill.name} experience`} aria-describedby={`${skill.id}-info`}
+                                    className="w-full cursor-pointer rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-text">
+                                        <img src={skill.image} alt="" className="aspect-square w-full object-contain transition-transform group-hover:scale-105" />
+                                    </button>
+
+                                    <div id={`${skill.id}-info`} role="tooltip" 
+                                    className="invisible absolute bottom-full left-1/2 w-56 -translate-x-1/2 pb-2 opacity-0 transition-opacity duration-150 
+                                    group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                                        <div className="rounded-xl border border-secondary bg-surface p-4 text-left text-text shadow-xl" >
+                                            <SkillSetInfo name={skill.name} description={skill.description}/>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
@@ -59,7 +166,7 @@ function SkillSet() {
 
 export default SkillSet;
 
-// to use later for 3d models of logos
+// to use later for 3d models of logos and unused code
 /*
 <div className="aspect-square w-full">
     <ModelViewer url="/models/python-logo.glb" scale={10}/>
@@ -78,5 +185,27 @@ export default SkillSet;
 </div>
 <div className="aspect-square w-full">
     <ModelViewer url="/models/cpp-logo.glb" scale={10}/>
+</div>
+
+<div className="grid grid-cols-5 gap-1 sm:grid-cols-10 lg:grid-cols-15">
+    <img src={PythonLogo} alt="Python Logo" className="aspect-square w-full "/>
+    <img src={JavaScriptLogo} alt="Python Logo" className="aspect-square w-full"/>
+    <img src={TypeScriptLogo} alt="Python Logo" className="aspect-square w-full"/>
+    <img src={HTMLLogo} alt="Python Logo" className="aspect-square w-full"/>
+    <img src={CSSLogo} alt="Python Logo" className="aspect-square w-full"/>
+    <img src={CPPLogo} alt="Python Logo" className="aspect-square w-full"/>
+    <img src={InoLogo} alt="Python Logo" className="aspect-square w-full"/>
+    <img src={LuaLogo} alt="Python Logo" className="aspect-square w-full"/>
+    <img src={LuauLogo} alt="Python Logo" className="aspect-square w-full"/>
+    <img src={JavaLogo} alt="Python Logo" className="aspect-square w-full"/>
+</div>
+<hr className="my-6 border-text/20"></hr>
+<div className="grid grid-cols-5 gap-1 sm:grid-cols-10 lg:grid-cols-15">
+    <img src={MatPlotLibLogo} alt="Python Logo" className="aspect-square w-full "/>
+    <img src={ReactLogo} alt="Python Logo" className="aspect-square w-full "/>
+    <img src={ThreeJsLogo} alt="Python Logo" className="aspect-square w-full "/>
+    <img src={TailwindCssLogo} alt="Python Logo" className="aspect-square w-full "/>
+    <img src={DiscordPyLogo} alt="Python Logo" className="aspect-square w-full "/>
+    <img src={DiscordJsLogo} alt="Python Logo" className="aspect-square w-full "/>
 </div>
 */
