@@ -150,9 +150,9 @@ function SkillSet() {
                     <div key={groupIndex}>
                         <hr className="my-6 border-text/20" />
 
-                        <div className="grid grid-cols-5 gap-1 sm:grid-cols-10 lg:grid-cols-15">
+                        <div className="flex flex-wrap justify-center gap-2">
                             {skills.map(skill => (
-                                <div key={skill.id} className="group relative min-w-0 hover:z-20 focus-within:z-20">
+                                <div key={skill.id} className="group relative w-16 shrink-0 hover:z-20 focus-within:z-20">
                                     <button type="button" aria-label={`${skill.name} experience`} aria-describedby={`${skill.id}-info`}
                                     className="w-full cursor-pointer rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-text"
                                     onClick={(event) => {
