@@ -1,13 +1,20 @@
-import PythonLogo from "../assets/PythonLogo.webp";
-import JavaScriptLogo from "../assets/JSLogo.png";
-import TypeScriptLogo from "../assets/TSLogo.png";
-import HTMLLogo from "../assets/HTMLLogo.png";
-import CSSLogo from "../assets/CSSLogo.png";
-import CPPLogo from "../assets/CPPLogo.png";
-import InoLogo from "../assets/InoLogo.png";
-import LuaLogo from "../assets/LuaLogo.png";
-import LuauLogo from "../assets/LuauLogo.png";
-import JavaLogo from "../assets/JavaLogo.png";
+import PythonLogo from "../assets/Languages/PythonLogo.webp";
+import JavaScriptLogo from "../assets/Languages/JSLogo.png";
+import TypeScriptLogo from "../assets/Languages/TSLogo.png";
+import HTMLLogo from "../assets/Languages/HTMLLogo.png";
+import CSSLogo from "../assets/Languages/CSSLogo.png";
+import CPPLogo from "../assets/Languages/CPPLogo.png";
+import InoLogo from "../assets/Languages/InoLogo.png";
+import LuaLogo from "../assets/Languages/LuaLogo.png";
+import LuauLogo from "../assets/Languages/LuauLogo.png";
+import JavaLogo from "../assets/Languages/JavaLogo.png";
+import ReactLogo from "../assets/Libraries/ReactLogo.png";
+import TailwindCssLogo from "../assets/Libraries/TailwindCss.png";
+import MatPlotLibLogo from "../assets/Libraries/MatPlotLib.png";
+import ThreeJsLogo from "../assets/Libraries/ThreeJsLogo.png";
+import DiscordPyLogo from "../assets/Libraries/DiscordPyLogo.png";
+import DiscordJsLogo from "../assets/Libraries/DiscordJsLogo.png";
+
 
 
 function SkillSet() {
@@ -35,6 +42,15 @@ function SkillSet() {
                     <img src={LuaLogo} alt="Python Logo" className="aspect-square w-full"/>
                     <img src={LuauLogo} alt="Python Logo" className="aspect-square w-full"/>
                     <img src={JavaLogo} alt="Python Logo" className="aspect-square w-full"/>
+                </div>
+                <hr className="my-6 border-text/20"></hr>
+                <div className="grid grid-cols-5 gap-1 sm:grid-cols-10 lg:grid-cols-15">
+                    <img src={MatPlotLibLogo} alt="Python Logo" className="aspect-square w-full "/>
+                    <img src={ReactLogo} alt="Python Logo" className="aspect-square w-full "/>
+                    <img src={ThreeJsLogo} alt="Python Logo" className="aspect-square w-full "/>
+                    <img src={TailwindCssLogo} alt="Python Logo" className="aspect-square w-full "/>
+                    <img src={DiscordPyLogo} alt="Python Logo" className="aspect-square w-full "/>
+                    <img src={DiscordJsLogo} alt="Python Logo" className="aspect-square w-full "/>
                 </div>
             </div>
         </div>
