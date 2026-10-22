@@ -1,0 +1,3 @@
+I've used python to make programs for purposes such as mathematics and other purposes like a discord bot.
+One example of a python program I've made is a sorting visualiser which functions like the sorting visualisers you see
+on youtube.

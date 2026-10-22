@@ -1,0 +1,1 @@
+I've used JavaScript to make interactive websites and discord bots. One example of a JavaScript project is the discord bot code on my github page!

@@ -16,106 +16,118 @@ import DiscordPyLogo from "../assets/Libraries/DiscordPyLogo.png";
 import DiscordJsLogo from "../assets/Libraries/DiscordJSLogo.png";
 
 import SkillSetInfo from "./SkillSetInfo";
+import GetRequestedLocale from "../locale/GetRequestedLocale";
+import type { RequestedText } from "../locale/GetRequestedLocale";
+import GetLang from "../helpers/getLang";
 
-const languages = [
+interface Skill {
+    id: string;
+    name: string;
+    image: string;
+    descriptionKey?: RequestedText;
+}
+
+const lang: string = GetLang()
+
+const languages: Skill[] = [
     {
         id: "python",
         name: "Python",
         image: PythonLogo,
-        description: ""
+        descriptionKey: "SkillPython"
     },
     {
         id: "javascript",
         name: "JavaScript",
         image: JavaScriptLogo,
-        description: ""
+        descriptionKey: "SkillJs"
     },
     {
         id: "typescript",
         name: "TypeScript",
         image: TypeScriptLogo,
-        description: ""
+        descriptionKey: "SkillTs"
     },
     {
         id: "html",
         name: "Hyper-Text Markup Language",
         image: HTMLLogo,
-        description: ""
+        descriptionKey: "SkillHtml"
     },
     {
         id: "css",
         name: "Cascading Style Sheets",
         image: CSSLogo,
-        description: ""
+        descriptionKey: "SkillCss"
     },
     {
         id: "cpp",
         name: "C++",
         image: CPPLogo,
-        description: ""
+        descriptionKey: "SkillCpp"
     },
     {
         id: "ino",
         name: "Arduino",
         image: InoLogo,
-        description: ""
+        descriptionKey: "SkillIno"
     },
     {
         id: "lua",
         name: "Lua",
         image: LuaLogo,
-        description: ""
+        descriptionKey: "SkillLua"
     },
     {
         id: "luau",
         name: "Luau",
         image: LuauLogo,
-        description: ""
+        descriptionKey: "SkillLuau"
     },
     {
         id: "java",
         name: "Java",
         image: JavaLogo,
-        description: ""
+        descriptionKey: "SkillJava"
     },
 ];
 
-const libraries = [
+const libraries: Skill[] = [
     {
         id: "matplotlib",
         name: "MatPlotLib",
         image: MatPlotLibLogo,
-        description: ""
+        descriptionKey: "SkillMatplotlib"
     },
     {
         id: "react",
         name: "React",
         image: ReactLogo,
-        description: ""
+        descriptionKey: "SkillReact"
     },
     {
         id: "threejs",
         name: "Three.js",
         image: ThreeJsLogo,
-        description: ""
+        descriptionKey: "SkillThreejs"
     },
     {
         id: "tailwind",
         name: "Tailwind CSS",
         image: TailwindCssLogo,
-        description: ""
+        descriptionKey: "SkillTailwindCss"
     },
     {
         id: "discordpy",
         name: "Discord.py",
         image: DiscordPyLogo,
-        description: ""
+        descriptionKey: "SkillDiscordpy"
     },
     {
         id: "discordjs",
         name: "Discord.js",
         image: DiscordJsLogo,
-        description: ""
+        descriptionKey: "SkillDiscordjs"
     },
 ];
 
@@ -142,7 +154,18 @@ function SkillSet() {
                             {skills.map(skill => (
                                 <div key={skill.id} className="group relative min-w-0 hover:z-20 focus-within:z-20">
                                     <button type="button" aria-label={`${skill.name} experience`} aria-describedby={`${skill.id}-info`}
-                                    className="w-full cursor-pointer rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-text">
+                                    className="w-full cursor-pointer rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-text"
+                                    onClick={(event) => {
+                                        if (event.currentTarget.dataset.pinned === "true") {
+                                            event.currentTarget.dataset.pinned = "false";
+                                            event.currentTarget.blur();
+                                        } else {
+                                            event.currentTarget.dataset.pinned = "true";
+                                        }
+                                    }}
+                                    onBlur={(event) => {
+                                        event.currentTarget.dataset.pinned = "false";
+                                    }}>
                                         <img src={skill.image} alt="" className="aspect-square w-full object-contain transition-transform group-hover:scale-105" />
                                     </button>
 
@@ -150,7 +173,8 @@ function SkillSet() {
                                     className="invisible absolute bottom-full left-1/2 w-56 -translate-x-1/2 pb-2 opacity-0 transition-opacity duration-150 
                                     group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
                                         <div className="rounded-xl border border-secondary bg-surface p-4 text-left text-text shadow-xl" >
-                                            <SkillSetInfo name={skill.name} description={skill.description}/>
+                                            <SkillSetInfo name={skill.name} description={
+                                                skill.descriptionKey ? GetRequestedLocale(lang, skill.descriptionKey) : "To be added."}/>
                                         </div>
                                     </div>
 

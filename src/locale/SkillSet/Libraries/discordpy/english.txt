@@ -1,0 +1,1 @@
+I have used the Discord.py library to contribute to the development of other discord bots such as a discord bot named Axion which manages Roblox role group handling and promotions!

@@ -1,0 +1,1 @@
+I have used the Discord.js library to make JavaScript/TypeScript programs that can run discord bots. One such being the Eraxis Bot I made a while ago.

@@ -1,0 +1,1 @@
+I've used typescript to make interactive websites in tandem with react and used it also to make discord bots. In fact, this website is made with TypeScript + React!
