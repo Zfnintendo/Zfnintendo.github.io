@@ -13,7 +13,7 @@ import TailwindCssLogo from "../assets/Libraries/TailwindCss.png";
 import MatPlotLibLogo from "../assets/Libraries/MatPlotLib.png";
 import ThreeJsLogo from "../assets/Libraries/ThreeJsLogo.png";
 import DiscordPyLogo from "../assets/Libraries/DiscordPyLogo.png";
-import DiscordJsLogo from "../assets/Libraries/DiscordJsLogo.png";
+import DiscordJsLogo from "../assets/Libraries/DiscordJSLogo.png";
 
 
 
