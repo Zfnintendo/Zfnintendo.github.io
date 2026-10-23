@@ -12,18 +12,15 @@ function AboutStats() {
             ">
                 <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2">
                     <div className="flex justify-center">
-                        <a href="https://github.com/Zfnintendo">
-                        <   GithubStats type="top-langs" langsCount={8}/>
-                        </a>
+                        <GithubStats type="top-langs" langsCount={8}/>
+
                     </div>
                     
                     <div className="flex flex-col items-center gap-6">
                         <h2 className="text-2xl text-center font-semibold">GitHub Statistics</h2>
                         <p className="text-center">Here is some of my GitHub Statistics such as my top langauges, my latest project and my overall general statistics!</p>
                         <hr className="border border-text w-full" />
-                        <a href="https://github.com/Zfnintendo">
-                            <GithubStats type="stats" showIcons={true}/>
-                        </a>
+                        <GithubStats type="stats" showIcons={true}/>
                         <a href="https://github.com/Zfnintendo/Pseudocode-Interpreter">
                             <GithubStats type="pin" repository="pseudocode-interpreter"/>
                         </a>
