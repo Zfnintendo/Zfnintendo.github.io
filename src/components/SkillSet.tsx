@@ -145,7 +145,7 @@ function SkillSet() {
                 ">
 
                 <h2 className="text-2xl font-semibold">Experiences</h2>
-                <p className="">Here is all the languages, frameworks and libraries I have used before, both in and out my projects!</p>
+                <p className="">{GetRequestedLocale(lang, "SkillSetDesc")}</p>
                 {skillGroups.map((skills, groupIndex) => 
                     <div key={groupIndex}>
                         <hr className="my-6 border-text/20" />

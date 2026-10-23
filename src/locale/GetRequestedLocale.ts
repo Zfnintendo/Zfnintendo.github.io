@@ -1,6 +1,8 @@
 import englishAbout from './AboutDescription/english.txt?raw';
 import englishDetails from './ShortAboutDesc/english.txt?raw';
 
+import englishSkillSetDesc from './SkillSet/desc/english.txt?raw';
+
 import englishSkillPy from './SkillSet/Languages/python/english.txt?raw';
 import englishSkillJs from './SkillSet/Languages/javascript/english.txt?raw';
 import englishSkillTs from './SkillSet/Languages/typescript/english.txt?raw';
@@ -25,6 +27,8 @@ export type RequestedText =
 "AboutDescription" | 
 "ShortAboutDesc" | 
 
+"SkillSetDesc" |
+
 "SkillPython" | 
 "SkillJs" |
 "SkillTs" |
@@ -43,7 +47,7 @@ export type RequestedText =
 "SkillDiscordpy" |
 "SkillDiscordjs" |
 
-"GithubStats"
+"GithubStats" 
 
 
 const translations: Record<RequestedText, Record<string, string>> = {
@@ -54,60 +58,64 @@ const translations: Record<RequestedText, Record<string, string>> = {
         en: englishDetails,
     },
 
+    SkillSetDesc: {
+        en: englishSkillSetDesc,
+    },
+
     // Skill Set lang
     SkillPython: {
-        en:englishSkillPy
+        en:englishSkillPy,
     },
     SkillJs: {
-        en:englishSkillJs
+        en:englishSkillJs,
     },
     SkillTs: {
-        en:englishSkillTs
+        en:englishSkillTs,
     },
     SkillHtml: {
-        en:englishSkillHtml
+        en:englishSkillHtml,
     },
     SkillCss: {
-        en:englishSkillCss
+        en:englishSkillCss,
     },
     SkillCpp: {
-        en:englishSkillCpp
+        en:englishSkillCpp,
     },
     SkillIno: {
-        en:englishSkillIno
+        en:englishSkillIno,
     },
     SkillLua: {
-        en:englishSkillLua
+        en:englishSkillLua,
     },
     SkillLuau: {
-        en:englishSkilLuau
+        en:englishSkilLuau,
     },
     SkillJava: {
-        en:englishSkillJava
+        en:englishSkillJava,
     },
     
     // Skill Set lib
     SkillMatplotlib: {
-        en:englishSkillMatplotlib
+        en:englishSkillMatplotlib,
     },
     SkillReact: {
-        en:englishSkillReact
+        en:englishSkillReact,
     },
     SkillTailwindCss: {
-        en:englishSkillTailwind
+        en:englishSkillTailwind,
     },
     SkillThreejs: {
-        en:englishSkillThreeJs
+        en:englishSkillThreeJs,
     },
     SkillDiscordpy: {
-        en:englishSkillDiscordpy
+        en:englishSkillDiscordpy,
     },
     SkillDiscordjs: {
-        en:englishSkillDiscordjs
+        en:englishSkillDiscordjs,
     },
 
     GithubStats: {
-        en: englishGithubStats
+        en: englishGithubStats,
     },
 };
 
