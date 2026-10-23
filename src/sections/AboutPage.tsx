@@ -2,6 +2,7 @@ import AboutDescription from '../components/AboutDesc';
 import CatCard from '../components/CatCard';
 import DotsBackground from '../components/DotsBackground';
 import SkillSet from '../components/SkillSet';
+import AboutStats from '../components/AboutStats';
 
 function AboutPage() {
     return (
@@ -25,6 +26,8 @@ function AboutPage() {
                 {/*The rest of everyhtitng*/}
                 <div className="mt-20">
                     <SkillSet />
+                    <div className="min-h-20"/>
+                    <AboutStats />
                 </div>
             </div>
 
