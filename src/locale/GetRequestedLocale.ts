@@ -19,6 +19,8 @@ import englishSkillTailwind from './SkillSet/Libraries/tailwind/english.txt?raw'
 import englishSkillDiscordpy from './SkillSet/Libraries/discordpy/english.txt?raw';
 import englishSkillDiscordjs from './SkillSet/Libraries/discordjs/english.txt?raw';
 
+import englishGithubStats from './GithubStats/english.txt?raw';
+
 export type RequestedText = 
 "AboutDescription" | 
 "ShortAboutDesc" | 
@@ -39,7 +41,9 @@ export type RequestedText =
 "SkillThreejs" |
 "SkillTailwindCss" |
 "SkillDiscordpy" |
-"SkillDiscordjs"
+"SkillDiscordjs" |
+
+"GithubStats"
 
 
 const translations: Record<RequestedText, Record<string, string>> = {
@@ -50,6 +54,7 @@ const translations: Record<RequestedText, Record<string, string>> = {
         en: englishDetails,
     },
 
+    // Skill Set lang
     SkillPython: {
         en:englishSkillPy
     },
@@ -81,6 +86,7 @@ const translations: Record<RequestedText, Record<string, string>> = {
         en:englishSkillJava
     },
     
+    // Skill Set lib
     SkillMatplotlib: {
         en:englishSkillMatplotlib
     },
@@ -98,6 +104,10 @@ const translations: Record<RequestedText, Record<string, string>> = {
     },
     SkillDiscordjs: {
         en:englishSkillDiscordjs
+    },
+
+    GithubStats: {
+        en: englishGithubStats
     },
 };
 

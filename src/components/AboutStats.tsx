@@ -1,5 +1,11 @@
 import GithubStats from './GithubStats';
 
+import GetRequestedLocale from '../locale/GetRequestedLocale';
+import GetLang from '../helpers/getLang';
+
+const lang: string = GetLang();
+const text: string = GetRequestedLocale(lang, "GithubStats");
+
 function AboutStats() {
     return (
         <div className="flex w-full justify-center">
@@ -18,7 +24,7 @@ function AboutStats() {
                     
                     <div className="flex flex-col items-center gap-6">
                         <h2 className="text-2xl text-center font-semibold">GitHub Statistics</h2>
-                        <p className="text-center">Here is some of my GitHub Statistics such as my top langauges, my latest project and my overall general statistics!</p>
+                        <p className="text-center">{text}</p>
                         <hr className="border border-text w-full" />
                         <GithubStats type="stats" showIcons={true}/>
                         <a href="https://github.com/Zfnintendo/Pseudocode-Interpreter">
