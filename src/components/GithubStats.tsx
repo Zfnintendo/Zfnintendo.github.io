@@ -82,7 +82,12 @@ function GitHubStats(props: GitHubStatsProps) {
 
     return (
         <div
-            className={`flex items-center justify-center rounded-2xl w-full max-w-100 border border-[#FFD166] bg-[#FFF4CC] transition-colors duration-300 dark:border-[#8B641F] dark:bg-[#211B13] ${className}`}
+            className={`
+                flex items-center justify-center rounded-2xl w-full max-w-100
+                border border-[#FFD166] bg-[#FFF4CC] 
+                transition-[transform,background-color,border-color] duration-300 ease-out
+                hover:scale-[1.03] motion-reduce:transform-none 
+                dark:border-[#8B641F] dark:bg-[#211B13] ${className}`}
         >
             <img
                 src={createStatsURL("light", props)}
