@@ -20,7 +20,9 @@ function AboutStats() {
                         <p className="text-center">Here is some of my GitHub Statistics such as my top langauges, my latest project and my overall general statistics!</p>
                         <hr className="border border-text w-full" />
                         <GithubStats type="stats" showIcons={true}/>
-                        <GithubStats type="pin" repository="pseudocode-interpreter"/>
+                        <a href="https://github.com/Zfnintendo/Pseudocode-Interpreter">
+                            <GithubStats type="pin" repository="pseudocode-interpreter"/>
+                        </a>
                     </div>
                 </div>
 
