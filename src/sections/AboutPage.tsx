@@ -28,6 +28,9 @@ function AboutPage() {
                     <SkillSet />
                     <div className="min-h-20"/>
                     <AboutStats />
+
+                    {/* transition fade thing */}
+                    <div className="min-h-75"/>
                 </div>
             </div>
 

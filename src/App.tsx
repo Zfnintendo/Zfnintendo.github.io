@@ -1,5 +1,7 @@
 import GreeterPage from './sections/greeter';
 import AboutPage from './sections/AboutPage';
+import ProjectsPage from './sections/ProjectsPage';
+import FadeSection from './sections/FadeSection';
 import './App.css';
 
 function App() {
@@ -7,6 +9,8 @@ function App() {
     <>
       <GreeterPage />
       <AboutPage />
+      <FadeSection from="var(--color-primary)" to="var(--color-dark-background)"/>
+      <ProjectsPage />
     </>
   );
 }
