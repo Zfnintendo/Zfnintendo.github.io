@@ -1,3 +1,4 @@
+import MouseGlow from "../components/MouseGlow";
 import { useEffect, useRef } from "react";
 
 interface FadeSectionProps {
@@ -54,19 +55,24 @@ function FadeSection({ from, to }: FadeSectionProps) {
     }, []);
 
     return (
-        <div ref={wrapperRef} aria-hidden="true" className="h-[200svh]">
-            <div
-                ref={panelRef}
-                className="sticky top-0 h-svh w-full"
-                style={{
-                    backgroundColor: `color-mix(
-                        in srgb,
-                        ${to} var(--progress, 0%),
-                        ${from}
-                    )`,
-                }}
-            />
-        </div>
+        <section className="min-h-screen">
+
+            <MouseGlow />
+
+            <div ref={wrapperRef} aria-hidden="true" className="h-[200svh]">
+                <div
+                    ref={panelRef}
+                    className="sticky top-0 h-svh w-full"
+                    style={{
+                        backgroundColor: `color-mix(
+                            in srgb,
+                            ${to} var(--progress, 0%),
+                            ${from}
+                        )`,
+                    }}
+                />
+            </div>
+        </section>
     );
 }
 
