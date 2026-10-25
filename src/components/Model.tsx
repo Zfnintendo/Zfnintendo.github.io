@@ -1,5 +1,3 @@
-// unused
-
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import type { ThreeEvent } from "@react-three/fiber";

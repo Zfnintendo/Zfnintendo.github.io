@@ -1,4 +1,6 @@
 import HoverTitle from "../components/HoverTitle";
+import ModelViewer from "../components/ModelViewer";
+import ModelSlider from "../components/ModelSlider";
 import { useEffect, useRef } from "react";
 
 interface FadeSectionProps {
@@ -60,7 +62,7 @@ function FadeSection({ from, to }: FadeSectionProps) {
             <div ref={wrapperRef} aria-hidden="true" className="h-[200svh]">
                 <div
                     ref={panelRef}
-                    className="sticky top-0 flex h-svh w-full items-center justify-center"
+                    className="sticky top-0 grid h-svh w-full grid-rows-3"
                     style={{
                         backgroundColor: `color-mix(
                             in srgb,
@@ -68,8 +70,18 @@ function FadeSection({ from, to }: FadeSectionProps) {
                             ${from}
                         )`,
                     }}
-                >
-                    <HoverTitle>Projects!</HoverTitle>
+                >   
+                    <div  className="min-h-0 min-w-0">
+                        <ModelSlider />
+                    </div>
+
+                    <div className="flex min-h-0 items-center justify-center">
+                        <HoverTitle>Projects!</HoverTitle>
+                    </div>
+                    
+                    <div className="flex min-h-0 items-center justify-center">
+                        <ModelSlider />
+                    </div>
                 </div>
             </div>
         </section>
