@@ -1,4 +1,4 @@
-import MouseGlow from "../components/MouseGlow";
+import HoverTitle from "../components/HoverTitle";
 import { useEffect, useRef } from "react";
 
 interface FadeSectionProps {
@@ -57,12 +57,10 @@ function FadeSection({ from, to }: FadeSectionProps) {
     return (
         <section className="min-h-screen">
 
-            <MouseGlow />
-
             <div ref={wrapperRef} aria-hidden="true" className="h-[200svh]">
                 <div
                     ref={panelRef}
-                    className="sticky top-0 h-svh w-full"
+                    className="sticky top-0 flex h-svh w-full items-center justify-center"
                     style={{
                         backgroundColor: `color-mix(
                             in srgb,
@@ -70,7 +68,9 @@ function FadeSection({ from, to }: FadeSectionProps) {
                             ${from}
                         )`,
                     }}
-                />
+                >
+                    <HoverTitle>Projects!</HoverTitle>
+                </div>
             </div>
         </section>
     );
