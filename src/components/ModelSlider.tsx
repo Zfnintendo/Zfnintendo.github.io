@@ -1,6 +1,7 @@
 import { Suspense, useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Clone, useGLTF } from "@react-three/drei";
+import { MathUtils } from "three";
 import type { Group } from "three";
 
 const models = [
@@ -11,20 +12,27 @@ const models = [
     { url: "/models/cpp-logo.glb", scale: 5 },
 ];
 
-function SliderModel({
-    url,
-    scale,
-}: {
-    url: string;
-    scale: number;
-}) {
+function SliderModel({url, scale, hovered,}: {url: string; scale: number; hovered: boolean;}) {
     const { scene } = useGLTF(url);
+    const spinRef = useRef<Group>(null);
+    const spinSpeed = useRef(0);
 
-    // Clone allows the same loaded model to appear multiple times.
-    return <Clone object={scene} scale={scale} />;
+    useFrame((_, delta) => {
+        spinSpeed.current = MathUtils.damp(spinSpeed.current,hovered ? 0.8 : 0, 5, delta,);
+
+        if (spinRef.current) {
+            spinRef.current.rotation.y += spinSpeed.current * delta;
+        }
+    });
+
+    return (
+        <group ref={spinRef}>
+            <Clone object={scene} scale={scale} />
+        </group>
+    );
 }
 
-function MovingModels() {
+function MovingModels({ hovered }: { hovered: boolean }) {
     const rowRef = useRef<Group>(null);
     const offset = useRef(0);
     const { viewport } = useThree();
@@ -32,7 +40,7 @@ function MovingModels() {
     const spacing = 2.5;
     const speed = -0.8;
 
-    // Enough models to cover the screen plus an extra offscreen slot.
+    // enough models to cover the screen plus an extra offscreen slot.
     const count = Math.ceil(viewport.width / spacing) + 2;
 
     useFrame((_, delta) => {
@@ -58,7 +66,7 @@ function MovingModels() {
 
                 return (
                     <group key={index}>
-                        <SliderModel {...model} />
+                        <SliderModel {...model} hovered={hovered} />
                     </group>
                 );
             })}
@@ -67,8 +75,15 @@ function MovingModels() {
 }
 
 function ModelSlider() {
+
+    const [hovered, setHovered] = useState(false);
+
     return (
-        <div className="group relative isolate h-full min-h-40 w-full overflow-hidden">
+        <div 
+            className="group relative isolate h-full min-h-40 w-full overflow-hidden" 
+            onPointerEnter={() => setHovered(true)}
+            onPointerLeave={() => setHovered(false)}
+            >
             <span
                 aria-hidden="true"
                 className="
@@ -81,14 +96,19 @@ function ModelSlider() {
             />
 
             <Canvas
-                camera={{ position: [0, 0, 6], fov: 45 }}
+                orthographic
+                camera={{ position: [0, 0, 10], zoom: 60 }}
                 style={{ pointerEvents: "none" }}
             >
-                <ambientLight intensity={1.5} />
-                <directionalLight position={[5, 5, 5]} intensity={2} />
+                <ambientLight intensity={hovered ? 2 : 0.7} />
+
+                <directionalLight
+                    position={[5, 5, 5]}
+                    intensity={hovered ? 3 : 1}
+                />
 
                 <Suspense fallback={null}>
-                    <MovingModels />
+                    <MovingModels hovered={hovered} />
                 </Suspense>
             </Canvas>
         </div>

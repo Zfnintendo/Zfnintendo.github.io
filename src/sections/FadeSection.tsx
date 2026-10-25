@@ -1,5 +1,4 @@
 import HoverTitle from "../components/HoverTitle";
-import ModelViewer from "../components/ModelViewer";
 import ModelSlider from "../components/ModelSlider";
 import { useEffect, useRef } from "react";
 
@@ -71,6 +70,7 @@ function FadeSection({ from, to }: FadeSectionProps) {
                         )`,
                     }}
                 >   
+
                     <div  className="min-h-0 min-w-0">
                         <ModelSlider />
                     </div>
@@ -82,6 +82,7 @@ function FadeSection({ from, to }: FadeSectionProps) {
                     <div className="flex min-h-0 items-center justify-center">
                         <ModelSlider />
                     </div>
+
                 </div>
             </div>
         </section>
