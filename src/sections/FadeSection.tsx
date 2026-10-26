@@ -1,5 +1,6 @@
 import HoverTitle from "../components/HoverTitle";
 import ModelSlider from "../components/ModelSlider";
+import MeshBackground from "../components/MeshBackground";
 import { useEffect, useRef } from "react";
 
 interface FadeSectionProps {
@@ -70,6 +71,7 @@ function FadeSection({ from, to }: FadeSectionProps) {
                         )`,
                     }}
                 >   
+                    <MeshBackground />
 
                     <div  className="min-h-0 min-w-0">
                         <ModelSlider />
