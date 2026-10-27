@@ -29,13 +29,11 @@ const projects: Project[] = [
 
 function ProjectDisplay() {
     return (
-        <div className="
-            mx-auto grid w-full max-w-6xl
-            grid-cols-1 justify-items-center gap-8
-            md:grid-cols-2 lg:grid-cols-3
-        ">
+        <div className="mx-auto flex w-full max-w-6xl flex-wrap justify-center gap-8">
             {projects.map(({ id, ...project }) => (
-                <ProjectCard key={id} {...project} />
+                <div key={id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)]">
+                    <ProjectCard {...project} />
+                </div>
             ))}
         </div>
     );
