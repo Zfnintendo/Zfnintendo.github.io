@@ -34,7 +34,7 @@ function ProjectCard({image, imageAlt, title, description, repository}: ProjectC
                         rel="noopener noreferrer"
                         aria-label={`View ${title} repository on GitHub`}
                         className="
-                            mt-2 block self-center w-full max-w-100
+                            mt-auto block self-center w-full max-w-100
                             rounded-2xl
                             focus-visible:outline-2
                             focus-visible:outline-offset-4

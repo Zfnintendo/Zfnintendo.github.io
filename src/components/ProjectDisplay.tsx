@@ -29,7 +29,7 @@ const projects: Project[] = [
         id: "interactable-objects",
         image: tempimage,
         title: "Interactable Objects",
-        description: "A",
+        description: "A system to make consistent client objects with a single script.",
         repository: "interactable-objects",
     },
 ];
