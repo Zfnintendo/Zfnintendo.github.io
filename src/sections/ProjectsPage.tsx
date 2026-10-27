@@ -7,7 +7,7 @@ function ProjectsPage() {
         <section className="relative isolate flex min-h-screen items-center overflow-hidden bg-dark-background px-6 py-20">
             <ArrowsBackground />
             
-            <div>
+            <div className="relative z-10 w-full items-center">
                 <ProjectDisplay />
             </div>
 
