@@ -25,13 +25,20 @@ const projects: Project[] = [
         description: "My portfolio built with React and TypeScript.",
         repository: "Zfnintendo.github.io",
     },
+    {
+        id: "interactable-objects",
+        image: tempimage,
+        title: "Interactable Objects",
+        description: "A",
+        repository: "interactable-objects",
+    },
 ];
 
 function ProjectDisplay() {
     return (
         <div className="mx-auto flex w-full max-w-6xl flex-wrap justify-center gap-8">
             {projects.map(({ id, ...project }) => (
-                <div key={id} className="w-full md:w-[calc(50%-1rem)] lg:w-[calc((100%-4rem)/3)]">
+                <div key={id} className="flex w-full md:w-[calc(50%_-_1rem)] lg:w-[calc((100%_-_4rem)/3)]">
                     <ProjectCard {...project} />
                 </div>
             ))}

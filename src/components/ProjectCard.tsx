@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 function ProjectCard({image, imageAlt, title, description, repository}: ProjectCardProps) {
     return (
-        <article className="w-full max-w-lg overflow-hidden rounded-2xl border border-primary/20 bg-surface/20 shadow-xl">
+        <article className="flex h-full w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-primary/20 bg-surface/20 shadow-xl">
             <img
                 src={image}
                 alt={imageAlt ?? `${title} preview`}
@@ -18,7 +18,7 @@ function ProjectCard({image, imageAlt, title, description, repository}: ProjectC
                 loading="lazy" 
             />
 
-            <div className="flex flex-col gap-4 p-6 font-roboto text-text">
+            <div className="flex flex-1 flex-col gap-4 p-6 font-roboto text-text">
                 <h3 className="text-accent text-2xl text-center font-semibold">
                     {title}
                 </h3>
