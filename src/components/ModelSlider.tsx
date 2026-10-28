@@ -1,7 +1,6 @@
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Clone, useGLTF } from "@react-three/drei";
-import { MathUtils } from "three";
 import type { Group } from "three";
 
 const models = [
@@ -12,27 +11,13 @@ const models = [
     { url: "/models/cpp-logo.glb", scale: 5 },
 ];
 
-function SliderModel({url, scale, hovered,}: {url: string; scale: number; hovered: boolean;}) {
+function SliderModel({url, scale}: {url: string; scale: number}) {
     const { scene } = useGLTF(url);
-    const spinRef = useRef<Group>(null);
-    const spinSpeed = useRef(0);
 
-    useFrame((_, delta) => {
-        spinSpeed.current = MathUtils.damp(spinSpeed.current,hovered ? 0.8 : 0, 5, delta,);
-
-        if (spinRef.current) {
-            spinRef.current.rotation.y += spinSpeed.current * delta;
-        }
-    });
-
-    return (
-        <group ref={spinRef}>
-            <Clone object={scene} scale={scale} />
-        </group>
-    );
+    return <Clone object={scene} scale={scale} />;
 }
 
-function MovingModels({ hovered }: { hovered: boolean }) {
+function MovingModels() {
     const rowRef = useRef<Group>(null);
     const offset = useRef(0);
     const { viewport } = useThree();
@@ -66,7 +51,7 @@ function MovingModels({ hovered }: { hovered: boolean }) {
 
                 return (
                     <group key={index}>
-                        <SliderModel {...model} hovered={hovered} />
+                        <SliderModel {...model}/>
                     </group>
                 );
             })}
@@ -74,41 +59,23 @@ function MovingModels({ hovered }: { hovered: boolean }) {
     );
 }
 
-function ModelSlider() {
-
-    const [hovered, setHovered] = useState(false);
-
+function ModelSlider({ darkness = 0 }: { darkness?: number }) {
     return (
-        <div 
-            className="group relative isolate h-full min-h-40 w-full overflow-hidden" 
-            onPointerEnter={() => setHovered(true)}
-            onPointerLeave={() => setHovered(false)}
-            >
-            <span
-                aria-hidden="true"
-                className="
-                    pointer-events-none absolute inset-0 -z-10
-                    origin-center scale-y-0 bg-primary
-                    transition-transform duration-500 ease-out
-                    group-hover:scale-y-100
-                    motion-reduce:transition-none
-                "
-            />
-
+        <div className="relative h-full min-h-0 w-full overflow-hidden">
             <Canvas
                 orthographic
                 camera={{ position: [0, 0, 10], zoom: 60 }}
                 style={{ pointerEvents: "none" }}
             >
-                <ambientLight intensity={hovered ? 2 : 0.7} />
+                <ambientLight intensity={2 - darkness * 1.3} />
 
                 <directionalLight
                     position={[5, 5, 5]}
-                    intensity={hovered ? 3 : 1}
+                    intensity={3 - darkness * 2}
                 />
 
                 <Suspense fallback={null}>
-                    <MovingModels hovered={hovered} />
+                    <MovingModels />
                 </Suspense>
             </Canvas>
         </div>

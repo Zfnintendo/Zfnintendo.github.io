@@ -1,7 +1,7 @@
 import HoverTitle from "../components/HoverTitle";
 import ModelSlider from "../components/ModelSlider";
 import MeshBackground from "../components/MeshBackground";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface FadeSectionProps {
     from: string;
@@ -11,6 +11,7 @@ interface FadeSectionProps {
 function FadeSection({ from, to }: FadeSectionProps) {
     const wrapperRef = useRef<HTMLDivElement>(null);
     const panelRef = useRef<HTMLDivElement>(null);
+    const [darkness, setDarkness] = useState(0);
 
     useEffect(() => {
         const wrapper = wrapperRef.current;
@@ -31,6 +32,8 @@ function FadeSection({ from, to }: FadeSectionProps) {
                 0,
                 Math.min(1, -rect.top / Math.max(scrollDistance, 1)),
             );
+
+            setDarkness(progress);
 
             panel!.style.setProperty(
                 "--progress",
@@ -74,7 +77,7 @@ function FadeSection({ from, to }: FadeSectionProps) {
                     <MeshBackground />
 
                     <div  className="min-h-0 min-w-0">
-                        <ModelSlider />
+                        <ModelSlider darkness={darkness} />
                     </div>
 
                     <div className="flex min-h-0 items-center justify-center">
@@ -82,7 +85,7 @@ function FadeSection({ from, to }: FadeSectionProps) {
                     </div>
                     
                     <div className="flex min-h-0 items-center justify-center">
-                        <ModelSlider />
+                        <ModelSlider darkness={darkness} />
                     </div>
 
                 </div>

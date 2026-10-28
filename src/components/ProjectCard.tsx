@@ -9,7 +9,7 @@ interface ProjectCardProps {
 }
 
 function ProjectCard({image, imageAlt, title, description, repository}: ProjectCardProps) {
-    return (
+    return ( // todo make the thing expand a lil bit after hovering
         <article className="flex h-full w-full max-w-lg flex-col overflow-hidden rounded-2xl border border-primary/20 bg-surface/20 shadow-xl">
             <img
                 src={image}
