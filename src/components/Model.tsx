@@ -1,7 +1,7 @@
 import { useRef, useState } from "react";
 import { useFrame } from "@react-three/fiber";
 import type { ThreeEvent } from "@react-three/fiber";
-import { useGLTF } from "@react-three/drei";
+import { Clone, useGLTF } from "@react-three/drei";
 import type { Group } from "three";
 
 interface ModelProps {
@@ -107,7 +107,7 @@ function Model({ url, scale = 1}: ModelProps) {
             onPointerOver={() => setHovered(true)}
             onPointerOut={() => setHovered(false)}
         >
-            <primitive
+            <Clone
                 object={scene}
                 scale={hovered ? scale * 1.1 : scale}
             />

@@ -1,7 +1,7 @@
 import { Suspense, useRef } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Clone, useGLTF } from "@react-three/drei";
 import type { Group } from "three";
+import Model from "./Model";
 
 const models = [
     { url: "/models/python-logo.glb", scale: 5 },
@@ -10,12 +10,6 @@ const models = [
     { url: "/models/css-logo.glb", scale: 5 },
     { url: "/models/cpp-logo.glb", scale: 5 },
 ];
-
-function SliderModel({url, scale}: {url: string; scale: number}) {
-    const { scene } = useGLTF(url);
-
-    return <Clone object={scene} scale={scale} />;
-}
 
 function MovingModels() {
     const rowRef = useRef<Group>(null);
@@ -51,7 +45,7 @@ function MovingModels() {
 
                 return (
                     <group key={index}>
-                        <SliderModel {...model}/>
+                        <Model {...model} />
                     </group>
                 );
             })}
@@ -65,7 +59,7 @@ function ModelSlider({ darkness = 0 }: { darkness?: number }) {
             <Canvas
                 orthographic
                 camera={{ position: [0, 0, 10], zoom: 60 }}
-                style={{ pointerEvents: "none" }}
+                style={{ touchAction: "none" }}
             >
                 <ambientLight intensity={2 - darkness * 1.3} />
 
